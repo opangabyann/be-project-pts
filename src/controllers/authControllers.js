@@ -11,11 +11,11 @@ const sendEmailHandle = require("../mail/indegs");
 async function register(req, res) {
   try {
     const payload = req.body;
-    const { nama, email, password,role } = payload;
+    const { nama, username, password,role } = payload;
     let hashPassword = await bcrypt.hashSync(password, 10);
     await UserModel.create({
       nama,
-      email,
+      username,
       password: hashPassword,
       role
     });
@@ -38,11 +38,11 @@ async function login(req, res) {
   try {
     const payload = req.body;
 
-    const { email, password } = payload;
+    const { username, password } = payload;
 
     const user = await UserModel.findOne({
       where: {
-        email: email,
+        email: username,
       },
     });
 

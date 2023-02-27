@@ -2,27 +2,16 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('pakets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       id_outlet: {
         type: Sequelize.INTEGER,
+        allowNull : false,
         onDelete :  'CASCADE',
         onUpdate : 'CASCADE',
         references : {
@@ -31,9 +20,17 @@ module.exports = {
           as : "id_outlet"
         }
       },
-      role: {
-        type: Sequelize.ENUM('admin','kasir','owner'),
-        allowNull: false,
+      jenis: {
+        type: Sequelize.ENUM('kiloan','selimut','bed_cover','kaos','lain'),
+        allowNull : false
+      },
+      nama_paket: {
+        type: Sequelize.STRING,
+        allowNull :false
+      },
+      harga: {
+        type: Sequelize.INTEGER,
+        allowNull : false,
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +43,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('pakets');
   }
 };
