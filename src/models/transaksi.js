@@ -11,6 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      transaksi.hasOne(models.detail_transaksi, {
+        as : "transaksi",
+        foreignKey : "id_transaksi"
+      })
+      transaksi.belongsTo(models.outlet, {
+        as : "outlet",
+        foreignKey : "id_outlet"
+      })
+      transaksi.belongsTo(models.member, {
+        as : "member",
+        foreignKey : "id_member"
+      })
+      transaksi.belongsTo(models.user, {
+        as : "user",
+        foreignKey : "id_user"
+      })
     }
   }
   transaksi.init({

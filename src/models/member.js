@@ -11,12 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      member.hasOne(models.transaksi, {
+        as : "transaksi",
+        foreignKey : "id_member"
+      })
+
     }
   }
   member.init({
     nama: DataTypes.STRING,
     alamat: DataTypes.STRING,
-    jenis_kelamin: DataTypes.STRING,
+    jenis_kelamin: DataTypes.ENUM("laki-laki","enum"),
     tlp: DataTypes.STRING
   }, {
     sequelize,

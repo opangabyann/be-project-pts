@@ -11,6 +11,7 @@ module.exports = {
       },
       id_transaksi: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         onDelete :  'CASCADE',
         onUpdate : 'CASCADE',
         references : {
@@ -21,6 +22,7 @@ module.exports = {
       },
       id_paket: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         onDelete :  'CASCADE',
         onUpdate : 'CASCADE',
         references : {
@@ -30,10 +32,13 @@ module.exports = {
         }
       },
       qty: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL,
+        allowNull : false,
       },
       keterangan: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull : false,
+
       },
       createdAt: {
         allowNull: false,

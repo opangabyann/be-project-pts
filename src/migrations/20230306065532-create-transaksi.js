@@ -11,6 +11,7 @@ module.exports = {
       },
       id_outlet: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         onDelete :  'CASCADE',
         onUpdate : 'CASCADE',
         references : {
@@ -20,11 +21,12 @@ module.exports = {
         }
       },
       kode_invoice: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       id_member: {
         type: Sequelize.INTEGER,
-    
+        allowNull: false,
+        allowNull: false,
         onDelete :  'CASCADE',
         onUpdate : 'CASCADE',
         references : {
@@ -34,7 +36,9 @@ module.exports = {
         }
       },
       tgl: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
+
       },
       batas_waktu: {
         type: Sequelize.DATE

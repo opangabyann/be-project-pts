@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         as : "user",
         foreignKey : "id_outlet"
       })
+
+      outlet.hasOne(models.transaksi, {
+        as : "transaksi",
+        foreignKey : "id_outlet"
+      })
     }
   }
   outlet.init({

@@ -13,7 +13,7 @@ const authMiddleware = require('./src/middleware/auth');
 const Log2Middleware = require('./src/middleware/log2');
 const Log1Middleware = require('./src/middleware/log1');
 const paginationMiddleware = require('./src/middleware/paginationMiddleware');
-
+const cors = require ('cors')
 const app = express();
 // const port = 8080;
 
@@ -21,7 +21,7 @@ const app = express();
 // app.use(authMiddleware)
 app.use(express.json())
 app.use(express.static("src/storage/uploads"))
-
+app.use(cors())
 app.use(Log2Middleware)
 app.use(Log1Middleware)
 app.use(log);

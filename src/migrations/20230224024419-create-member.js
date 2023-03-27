@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       jenis_kelamin: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("laki-laki","perempuan"),
         allowNull: false,
       },
       tlp: {
